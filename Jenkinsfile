@@ -33,7 +33,29 @@ pipeline{
             }
         } 
     }
+
+    stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t oussamamaaroufi1/spring-boot-api-img .'
+                }
+            }
     }
+
+    stage('Push image to Hub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u oussamamaaroufi1 -p ${dockerhubpwd}'
+
+                    }
+                   sh 'docker push oussamamaaroufi1/spring-boot-api-img'
+                }
+            }
+        }
+    }
+
+    
 
 
     post{
