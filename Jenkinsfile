@@ -46,7 +46,7 @@ pipeline{
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                   sh 'sudo docker login -u oussamamaaroufi1 -p ${dockerhubpwd}'
+                   sh 'docker login -u oussamamaaroufi1 -p ${dockerhubpwd}'
                    echo "login passed"
 
                 }
