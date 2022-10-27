@@ -16,7 +16,7 @@ services:
       - mysqldb:/var/lib/mysql
   api:
     container_name: api
-    image: spring-boot-api-tutorial-img
+    image: spring-boot-api-img
     build:
       context: ./
       dockerfile: Dockerfile
