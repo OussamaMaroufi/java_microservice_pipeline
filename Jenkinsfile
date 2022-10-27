@@ -57,7 +57,7 @@ pipeline{
     stage("Deploy The Application"){
         steps{
             script{
-                sh "docker compose  up -d "
+                sh "docker compose  up "
             }
         }
     }
