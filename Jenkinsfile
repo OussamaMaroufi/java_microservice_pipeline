@@ -2,10 +2,7 @@ pipeline{
     agent any
 
     stages{
-
         
-
-
        stage("sonar_quality_check"){
             agent { docker 'maven:3-alpine' } 
             steps{
