@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     stages{
-        
+
        stage("sonar_quality_check"){
             agent { docker 'maven:3-alpine' } 
             steps{
@@ -29,7 +29,7 @@ pipeline{
             script{
                 echo 'Hello, Maven'
                     sh 'mvn --version'
-                    sh 'mvn clean package'
+                    sh 'mvn clean install'
             }
         } 
     }
