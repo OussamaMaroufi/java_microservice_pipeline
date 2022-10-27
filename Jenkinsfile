@@ -54,6 +54,13 @@ pipeline{
                 }
             }
         }
+    stage("Deploy The Application"){
+        steps{
+            script{
+                sh "docker compose -f docker-compose  up -d "
+            }
+        }
+    }
     }
 
     
