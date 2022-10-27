@@ -25,8 +25,9 @@ pipeline{
     //         }
           
     //     }
-    agent { docker 'maven:3-alpine' } 
+    
     stage("Build project"){
+    agent { docker 'maven:3-alpine' } 
        steps {
 
             script{
