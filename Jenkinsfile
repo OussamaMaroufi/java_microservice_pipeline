@@ -6,25 +6,24 @@ pipeline{
         
 
 
-    //    stage("sonar_quality_check"){
-    //         agent { docker 'maven:3-alpine' } 
-    //         steps{
-    //             script{
-    //                 withSonarQubeEnv(credentialsId: 'jenkins_token') {
-    //                     // sh 'chmod +x gradlew'
-    //                     // sh './gradlew sonarqube --stacktrace'
-    //                 }
+       stage("sonar_quality_check"){
+            agent { docker 'maven:3-alpine' } 
+            steps{
+                script{
+                    withSonarQubeEnv(credentialsId: 'jenkins_token') {
+                      sh "mvn sonar:sonar"
+                    }
 
-    //                  timeout(time: 1, unit: 'HOURS') {
-    //                   def qg = waitForQualityGate()
-    //                   if (qg.status != 'OK') {
-    //                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
-    //                   }
-    //                 }
-    //             }
-    //         }
+                     timeout(time: 1, unit: 'HOURS') {
+                      def qg = waitForQualityGate()
+                      if (qg.status != 'OK') {
+                           error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                      }
+                    }
+                }
+            }
           
-    //     }
+        }
     
     stage("Build project"){
     agent { docker 'maven:3-alpine' } 
