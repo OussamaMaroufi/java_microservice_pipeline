@@ -47,9 +47,10 @@ pipeline{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
                    sh 'sudo docker login -u oussamamaaroufi1 -p ${dockerhubpwd}'
+                   echo "login passed"
 
                 }
-                //    sh 'docker push oussamamaaroufi1/spring-boot-api-img'
+                 sh 'docker push oussamamaaroufi1/spring-boot-api-img'
                 }
             }
         }
