@@ -48,7 +48,7 @@ pipeline{
                     nexusUrl: '174.129.132.61', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: 'http://174.129.132.61:8081/repository/maven-nexus-repo/', 
+                    repository: 'http://174.129.132.61:8081/repository/maven-nexus-repo', 
                     version: '1.0'
             }
         }
