@@ -34,6 +34,26 @@ pipeline{
         } 
     }
 
+    stage("Upload jar to Nexus"){
+        steps{
+            script{
+                nexusArtifactUploader artifacts: [[
+                    artifactId: 'achat',
+                    classifier: '', 
+                    file: 'target/achat-1.0.jar', 
+                    type: 'jar'
+                    ]], 
+                    credentialsId: 'nexus-user-credentials', 
+                    groupId: 'tn.esprit.rh', 
+                    nexusUrl: '174.129.132.61', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: 'http://174.129.132.61:8081/repository/maven-nexus-repo/', 
+                    version: '1.0'
+            }
+        }
+    }
+
     stage('Build docker image'){
             steps{
                 script{
