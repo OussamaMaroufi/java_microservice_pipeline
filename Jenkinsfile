@@ -45,7 +45,7 @@ pipeline{
                     ]], 
                     credentialsId: 'nexus-user-credentials', 
                     groupId: 'tn.esprit.rh', 
-                    nexusUrl: '174.129.132.61', 
+                    nexusUrl: '174.129.132.61:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'maven-nexus-repo', 
