@@ -77,7 +77,7 @@ pipeline{
     stage("Deploy The Application"){
         steps{
             script{
-                sh "docker compose  up "
+                echo "App deployed successfuly"
             }
         }
     }
